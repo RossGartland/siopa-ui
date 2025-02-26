@@ -6,9 +6,9 @@ import { provideHttpClient } from '@angular/common/http';
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter([
+      { path: '', loadComponent: () => import('./app/pages/home/home.component').then(m => m.HomeComponent) },
       { path: 'login', loadComponent: () => import('./app/auth/login/login.component').then(m => m.LoginComponent) },
-      { path: 'signup', loadComponent: () => import('./app/auth/signup/signup.component').then(m => m.SignupComponent) },
-      { path: '', redirectTo: '/login', pathMatch: 'full' }
+      { path: 'signup', loadComponent: () => import('./app/auth/signup/signup.component').then(m => m.SignupComponent) }
     ]),
     provideHttpClient()
   ]

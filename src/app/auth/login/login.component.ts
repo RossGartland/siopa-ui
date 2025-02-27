@@ -12,14 +12,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
+  username: string = '';
   password: string = '';
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit() {
-    this.authService.login(this.email, this.password).subscribe({
+    this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
         alert('Login successful!');
         localStorage.setItem('token', response.token); // Save token (if API returns it)

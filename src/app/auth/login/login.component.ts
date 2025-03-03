@@ -22,8 +22,8 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
         alert('Login successful!');
-        localStorage.setItem('token', response.token); // Save token (if API returns it)
-        this.router.navigate(['/dashboard']); // Redirect after login
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/dashboard']);
       },
       error: (error) => {
         console.error('Login error:', error);

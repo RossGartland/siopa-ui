@@ -13,6 +13,7 @@ export const APP_CONSTANTS = {
         ADMIN: 'ROLE_ADMIN',
     },
     SERVICES: {
-        SIOPA_AUTH: 'siopa-auth'
+        SIOPA_AUTH: 'siopa-auth',
+        SIOPA_STORES: 'siopa-stores'
     }
 };

@@ -1,0 +1,19 @@
+<h2>Nearby Stores</h2>
+
+<p *ngIf="error" class="error">{{ error }}</p>
+<p *ngIf="loading">Loading nearby stores...</p>
+
+<table *ngIf="!loading && stores.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Region</th>
+    <th>Address</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let store of stores">
+    <td>{{ store.name }}</td>
+    <td>{{ store.region }}</td>
+    <td>{{ store.address }}</td>
+    <td>{{ store.email }}</td>
+  </tr>
+</table>

@@ -11,6 +11,9 @@ export interface Store {
     active: boolean;
     phoneNumber: string;
     email: string;
+    storeType: String;
+    deliveryFee: number;
+    rating: number;
 }
 
 export interface LocationRequest {

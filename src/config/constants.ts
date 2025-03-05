@@ -14,6 +14,7 @@ export const APP_CONSTANTS = {
     },
     SERVICES: {
         SIOPA_AUTH: 'siopa-auth',
-        SIOPA_STORES: 'siopa-stores'
+        SIOPA_STORES: 'siopa-stores',
+        SIOPA_PRODUCTS: 'siopa-products'
     }
 };

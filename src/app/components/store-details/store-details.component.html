@@ -1,29 +1,27 @@
 <div class="container mt-5">
-    <h2>Store Details</h2>
-  
-    <!-- If store is loading, show a loading message -->
-    <ng-container *ngIf="store$ | async as store; else loading">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">{{ store.name }}</h3>
-          <p><strong>Region:</strong> {{ store.region }}</p>
-          <p><strong>Address:</strong> {{ store.address }}</p>
-          <p><strong>Phone:</strong> {{ store.phoneNumber }}</p>
-          <p><strong>Email:</strong> {{ store.email }}</p>
-          <p><strong>Type:</strong> {{ store.storeType }}</p>
-          <p><strong>Rating:</strong> ⭐ {{ store.rating }}</p>
-          <p><strong>Delivery Fee:</strong> ${{ store.deliveryFee }}</p>
-        </div>
+  <ng-container *ngIf="store as storeData; else loading">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{ storeData.name }}</h3>
+        <p><strong>Region:</strong> {{ storeData.region }}</p>
+        <p><strong>Address:</strong> {{ storeData.address }}</p>
+        <p><strong>Phone:</strong> {{ storeData.phoneNumber }}</p>
+        <p><strong>Email:</strong> {{ storeData.email }}</p>
+        <p><strong>Type:</strong> {{ storeData.storeType }}</p>
+        <p><strong>Rating:</strong> ⭐ {{ storeData.rating }}</p>
+        <p><strong>Delivery Fee:</strong> £{{ storeData.deliveryFee }}</p>
       </div>
-    </ng-container>
-  
-    <!-- Loading message while fetching store details -->
-    <ng-template #loading>
-      <p>Loading store details...</p>
-    </ng-template>
-  
-    <div class="mt-3">
-      <a routerLink="/nearby-stores" class="btn btn-secondary">Back to Stores</a>
     </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Loading store details...</p>
+  </ng-template>
+
+  <hr/>
+  <app-product-list *ngIf="storeId" [storeId]="storeId"></app-product-list>
+
+  <div class="mt-3">
+    <a routerLink="/nearby-stores" class="btn btn-secondary">Back to Stores</a>
   </div>
-  
+</div>

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { APP_CONSTANTS } from '../config/constants';
 
 export interface Store {
-    id: string;
+    storeId: string;
     name: string;
     region: string;
     address: string;

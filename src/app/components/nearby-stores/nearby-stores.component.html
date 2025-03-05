@@ -5,6 +5,7 @@
     <div class="container" *ngIf="!loading && stores.length > 0">
       <div class="row">
         <div class="col-md-4" *ngFor="let store of stores">
+          <a [routerLink]="['/store', store?.storeId]" class="store-link">
           <div class="card mb-4 box-shadow">
             <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
             <div class="card-body">
@@ -14,6 +15,7 @@
               <p class="card-text">Delivery Fee: £{{ store.deliveryFee }}</p>
             </div>
           </div>
+        </a>
         </div>
       </div> <!-- End row -->
     </div> <!-- End container -->

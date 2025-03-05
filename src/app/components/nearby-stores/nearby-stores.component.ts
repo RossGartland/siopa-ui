@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService, Store, LocationRequest } from '../../../services/StoreService';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-nearby-stores',
   templateUrl: './nearby-stores.component.html',
   styleUrls: ['./nearby-stores.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class NearbyStoresComponent implements OnInit {
   stores: Store[] = [];

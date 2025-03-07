@@ -1,7 +1,8 @@
 import { CommonModule, } from '@angular/common';
 import { Component, signal, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StoreService, Store } from '../../../services/StoreService';
+import { StoreService } from '../../../services/StoreService';
+import { Store } from '../../../models/Store';
 import { Observable } from 'rxjs';
 import { ProductListComponent } from '../product-list/product-list.component';
 

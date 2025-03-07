@@ -1,6 +1,7 @@
 import { Component, Input, signal, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService, Product } from '../../../services/ProductService';
+import { ProductService } from '../../../services/ProductService';
+import { Product } from '../../../models/Product';
 
 @Component({
   selector: 'app-product-list',

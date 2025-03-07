@@ -2,24 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { APP_CONSTANTS } from '../config/constants';
+import { Store } from '../models/Store';
+import { LocationRequest } from '../models/LocationRequest';
 
-export interface Store {
-    storeId: string;
-    name: string;
-    region: string;
-    address: string;
-    active: boolean;
-    phoneNumber: string;
-    email: string;
-    storeType: String;
-    deliveryFee: number;
-    rating: number;
-}
-
-export interface LocationRequest {
-    latitude: number;
-    longitude: number;
-}
 
 @Injectable({
     providedIn: 'root'

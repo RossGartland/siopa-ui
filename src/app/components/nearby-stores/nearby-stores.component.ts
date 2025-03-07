@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService, Store, LocationRequest } from '../../../services/StoreService';
+import { StoreService } from '../../../services/StoreService';
+import { LocationRequest } from '../../../models/LocationRequest';
+import { Store } from '../../../models/Store';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 

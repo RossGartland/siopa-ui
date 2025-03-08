@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { BasketService } from '../../../services/BasketService';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Product } from '../../../models/Product';
 
 @Component({
   selector: 'app-checkout',
@@ -17,16 +16,29 @@ export class CheckoutComponent {
   totalAmount = computed(() => this.basketItems().reduce((sum, item) => sum + item.price, 0));
 
   customerInfo = {
-    name: '',
+    forename: '',
+    surname: '',
+    phoneNumber: '',
     email: '',
-    address: '',
+    isDelivery: false,
+    deliveryAddress: '',
+    billingAddress: '',
     cardNumber: ''
   };
 
   constructor(private basketService: BasketService, private router: Router) { }
 
-  placeOrder() {
-    if (!this.customerInfo.name || !this.customerInfo.email || !this.customerInfo.address || !this.customerInfo.cardNumber) {
+  placeOrder(): void {
+    if (
+      !this.customerInfo.forename ||
+      !this.customerInfo.surname ||
+      !this.customerInfo.phoneNumber ||
+      !this.customerInfo.email ||
+      (!this.customerInfo.isDelivery && !this.customerInfo.deliveryAddress) ||
+      !this.customerInfo.deliveryAddress ||
+      !this.customerInfo.billingAddress ||
+      !this.customerInfo.cardNumber
+    ) {
       alert('Please fill in all required fields.');
       return;
     }

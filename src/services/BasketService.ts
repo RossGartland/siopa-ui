@@ -18,12 +18,16 @@ export class BasketService {
   constructor() {
     this.router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe((event: RouterEvent) => {
       if (this.basketItems().length > 0) {
-        const confirmLeave = window.confirm('Your basket will be reset if you leave this page. Do you want to continue?');
-        if (!confirmLeave) {
-          history.pushState(null, '', location.href);
-          return;
+        const isGoingToCheckout = (event as NavigationStart).url.startsWith('/checkout');
+
+        if (!isGoingToCheckout) {
+          const confirmLeave = window.confirm('Your basket will be reset if you leave this page. Do you want to continue?');
+          if (!confirmLeave) {
+            history.pushState(null, '', location.href);
+            return;
+          }
+          this.clearBasket();
         }
-        this.clearBasket();
       }
     });
 

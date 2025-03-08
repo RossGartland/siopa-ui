@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed } from '@angular/core';
 import { BasketService } from '../../../services/BasketService';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
 })
@@ -17,10 +18,5 @@ export class BasketComponent {
 
   removeFromBasket(index: number) {
     this.basketService.removeFromBasket(index);
-  }
-
-  checkout() {
-    alert('Proceeding to checkout...');
-    this.basketService.clearBasket();
   }
 }

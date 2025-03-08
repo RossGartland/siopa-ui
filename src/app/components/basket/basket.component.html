@@ -14,8 +14,8 @@
       </li>
     </ul>
   
-    <button class="btn btn-primary w-100 mt-3" [disabled]="basketItems().length === 0" (click)="checkout()">
+    <a class="btn btn-primary w-100 mt-3" *ngIf="basketItems().length > 0" routerLink="/checkout">
       Checkout
-    </button>
+    </a>
   </div>
   

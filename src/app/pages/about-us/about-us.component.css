@@ -1,0 +1,18 @@
+.hero {
+    background: url('/assets/home-bg.jpg') center/cover no-repeat;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    max-width: 800px;
+  }
+  
+  .cta {
+    background: #f8f9fa;
+  }
+  

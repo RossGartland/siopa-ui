@@ -23,6 +23,8 @@ export class LoginComponent {
       next: (response) => {
         alert('Login successful!');
         localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('userId', response.id);
+        localStorage.setItem('email', response.email);
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {

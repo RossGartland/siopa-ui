@@ -25,6 +25,8 @@ export class AuthService {
     logout() {
         if (typeof window !== 'undefined') {
             localStorage.removeItem('accessToken');
+            localStorage.removeItem('userId');
+            localStorage.removeItem('email');
         }
         this.isLoggedIn.set(false);
     }
@@ -34,5 +36,16 @@ export class AuthService {
             return null;
         }
         return localStorage.getItem('accessToken');
+    }
+
+    getUserDetails(): { email: string | null; userId: string | null } {
+        if (typeof window === 'undefined') {
+            return { email: null, userId: null };
+        }
+
+        return {
+            email: localStorage.getItem('email'),
+            userId: localStorage.getItem('userId')
+        };
     }
 }

@@ -19,7 +19,10 @@
   </ng-template>
 
   <hr/>
-  <app-product-list *ngIf="storeId" [storeId]="storeId"></app-product-list>
+  <div class="container">
+    <h2 *ngIf="store">{{ store.name }}</h2>
+    <app-product-list [storeId]="storeId"></app-product-list>
+  </div>
 
   <div class="mt-3">
     <a routerLink="/nearby-stores" class="btn btn-secondary">Back to Stores</a>

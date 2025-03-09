@@ -8,10 +8,19 @@ import { filter } from 'rxjs/operators';
 })
 export class BasketService {
   private basketItems = signal<Product[]>([]);
+  private selectedStoreId: string | null = null;
   private router = inject(Router);
 
   get items() {
     return this.basketItems.asReadonly();
+  }
+
+  getStoreId(): string | null {
+    return this.selectedStoreId;
+  }
+
+  setStoreId(storeId: string) {
+    this.selectedStoreId = storeId;
   }
 
 
@@ -50,5 +59,6 @@ export class BasketService {
 
   clearBasket() {
     this.basketItems.set([]);
+    this.selectedStoreId = null;
   }
 }

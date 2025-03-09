@@ -16,13 +16,10 @@ import { BasketComponent } from '../basket/basket.component';
 export class ProductListComponent implements OnChanges {
   @Input() storeId!: string;
   products = signal<Product[]>([]);
-
   isLoggedIn = computed(() => this.authService.isLoggedIn());
-
   showLoginMessage = signal<boolean>(false);
 
-  constructor(private productService: ProductService,
-    private authService: AuthService, private basketService: BasketService) { }
+  constructor(private productService: ProductService, private authService: AuthService, private basketService: BasketService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['storeId'] && this.storeId) {
@@ -40,6 +37,7 @@ export class ProductListComponent implements OnChanges {
   }
 
   addToBasket(product: Product) {
+    this.basketService.setStoreId(this.storeId);
     this.basketService.addToBasket(product);
   }
 

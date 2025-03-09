@@ -13,9 +13,8 @@
         <button class="btn btn-danger btn-sm" (click)="removeFromBasket(i)">✖</button>
       </li>
     </ul>
-  
-    <a class="btn btn-primary w-100 mt-3" *ngIf="basketItems().length > 0" routerLink="/checkout">
+    <a class="btn btn-primary w-100 mt-3" *ngIf="basketItems().length > 0 && storeId" routerLink="/checkout">
       Checkout
-    </a>
+   </a>
   </div>
   
